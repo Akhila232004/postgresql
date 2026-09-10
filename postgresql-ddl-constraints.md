@@ -15,10 +15,11 @@
 * This constraint ensures that a column cannot contain NULL values.
 * It enforces that every row in the table must have a value for that column.
 ```sql
--- NOT NULL Constraint on empid and ename columns in the emp table
-ALTER TABLE emp
-ALTER COLUMN empid SET NOT NULL,
+-- NOT NULL Constraint on empid and ename columns in the emp.emp table
+ALTER TABLE emp.emp
+ALTER COLUMN empno SET NOT NULL,
 ALTER COLUMN ename SET NOT NULL;
+#OUTPUT: ALTER TABLE
 
 -- We can also specify this constraint while table creation; for example 
 CREATE TABLE staff (
@@ -26,14 +27,16 @@ CREATE TABLE staff (
     name VARCHAR NOT NULL,
     age INTEGER
 );
+#OUTPUT: CREATE TABLE
 ```
 
 ### UNIQUE Constraint:
 * This constraint ensures that the values in a column (or a group of columns) are unique across all rows in the table.
 ```sql
--- UNIQUE Constraint to the empid column in the emp table
-ALTER TABLE emp
-ADD CONSTRAINT unique_empid UNIQUE (empid);
+-- UNIQUE Constraint to the empno column in the emp.emp table
+ALTER TABLE emp.emp
+ADD CONSTRAINT unique_empno UNIQUE (empno);
+#OUTPUT: ALTER TABLE
 
 -- We can also specify this constraint while table creation; for example
 CREATE TABLE students (
@@ -41,15 +44,17 @@ CREATE TABLE students (
     email VARCHAR UNIQUE,
     name VARCHAR
 );
+#OUTPUT: CREATE TABLE
 ```
 
 ### CHECK Constraint:
 * This constraint specifies a condition that must be satisfied for each row in the table.
 * It allows you to define custom rules for data validation.
 ```sql
--- CHECK Constraint on ProjectBudget column in the projects table
-ALTER TABLE projects
-ADD CONSTRAINT chk_project_budget CHECK (ProjectBudget > 0);
+-- CHECK Constraint on project_budget column in the emp.projects table
+ALTER TABLE emp.projects
+ADD CONSTRAINT chk_project_budget CHECK (budget > 0);
+#OUTPUT: ALTER TABLE
 
 -- We can also specify this constraint while table creation; for example
 CREATE TABLE products (
@@ -59,6 +64,7 @@ CREATE TABLE products (
     quantity INTEGER,
     CHECK (price > 0 AND quantity >= 0)
 );
+#OUTPUT: CREATE TABLE
 ```
 
 ### PRIMARY KEY Constraint:
@@ -67,42 +73,51 @@ CREATE TABLE products (
 -- PRIMARY KEY Constraint on deptid column in the dept table
 ALTER TABLE dept
 ADD CONSTRAINT pk_dept PRIMARY KEY (deptid);
+#OUTPUT: ALTER TABLE
 
--- PRIMARY KEY Constraint on empid column in the emp table
-ALTER TABLE emp 
-ADD CONSTRAINT pk_emp PRIMARY KEY (empid);
+-- PRIMARY KEY Constraint on empno column in the emp.emp table
+ALTER TABLE emp.emp
+ADD CONSTRAINT pk_emp PRIMARY KEY (empno);
+#OUTPUT: ALTER TABLE
 
--- PRIMARY KEY Constraint on projectid column in the projects table
-ALTER TABLE projects 
-ADD CONSTRAINT pk_projects PRIMARY KEY (ProjectID);
+-- PRIMARY KEY Constraint on projectno column in the emp.projects table
+ALTER TABLE emp.projects
+ADD CONSTRAINT pk_projects PRIMARY KEY (projectno);
+#OUTPUT: ALTER TABLE
 
--- PRIMARY KEY Constraint on EP_ID column in the EmpProjects table
-ALTER TABLE EmpProjects
-ADD CONSTRAINT pk_empprojects PRIMARY KEY (EP_ID);
+-- PRIMARY KEY Constraint on emp_projectno column in the emp.emp_rojects table
+ALTER TABLE emp.emp_projects
+ADD CONSTRAINT pk_empprojects PRIMARY KEY (emp_projectno);
+#OUTPUT: ALTER TABLE
 
 -- We can also specify this constraint while table creation; for example
 CREATE TABLE customers (
     customer_id INTEGER PRIMARY KEY,
     order_date DATE
 );
+#OUTPUT: CREATE TABLE
 ```
 
 ### FOREIGN KEY Constraint:
 * This constraint establishes a relationship between two tables.
 * It ensures referential integrity by enforcing a link between the data in the foreign key column(s) and the primary key or unique key in another table.
 ```sql
--- FOREIGN KEY Constraint on deptid column in the emp table referencing
--- the deptid column in the dept table
-ALTER TABLE emp
-ADD CONSTRAINT fk_deptid FOREIGN KEY (deptid) REFERENCES dept(deptid);
+-- FOREIGN KEY Constraint on deptno column in the emp.emp table referencing
+-- the deptid column in the emp.dept table
+ALTER TABLE emp.emp
+ADD CONSTRAINT fk_deptid
+FOREIGN KEY (deptno) REFERENCES emp.dept(deptid);
+#OUTPUT: ALTER TABLE
 
--- FOREIGN KEY Constraints on EmpID and ProjectID columns in the
--- EmpProjects table referencing the respective columns in the
+-- FOREIGN KEY Constraints on empno and projectno columns in the
+-- emp_projects table referencing the respective columns in the
 -- emp and projects tables
-ALTER TABLE EmpProjects
-ADD CONSTRAINT fk_emp_id FOREIGN KEY (EmpID) REFERENCES emp(empid),
-ADD CONSTRAINT fk_project_id FOREIGN KEY (ProjectID)
- REFERENCES projects(ProjectID);
+ALTER TABLE emp.emp_projects
+ADD CONSTRAINT fk_emp_id
+    FOREIGN KEY (empno) REFERENCES emp.emp(empno),
+ADD CONSTRAINT fk_project_id
+    FOREIGN KEY (projectno) REFERENCES emp.projects(projectno);
+#OUTPUT: ALTER TABLE    
 
 -- We can also specify this constraint while table creation; for example
 CREATE TABLE orders (
@@ -111,6 +126,7 @@ CREATE TABLE orders (
     -- Assuming there is a column customer_id in customers table
     order_date DATE
 );
+#OUTPUT: CREATE TABLE  
 ```
 
 ##### [Back To Context](./README.md)
