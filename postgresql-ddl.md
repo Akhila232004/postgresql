@@ -13,16 +13,18 @@
 ### CREATE:
 * Used to create new database objects like tables, indexes, views, schemas, sequences, etc.
 ```sql
--- Use database
-USE DATABASE tinitiate;
+-- Connect to database
+\c tinitiate 
+#OUTPUT: You are now connected to database "tinitiate" as user "postgres".
+         # tinitiate=#
 
 -- Schema DDL
-CREATE SCHEMA emp;
-CREATE USER ti WITH PASSWORD 'Tinitiate!23';
-ALTER SCHEMA emp OWNER TO ti;
+CREATE SCHEMA emp; #OUTPUT: CREATE SCHEMA
+CREATE USER ti WITH PASSWORD 'Tinitiate!23'; #OUTPUT: CREATE ROLE
+ALTER SCHEMA emp OWNER TO ti; #OUTPUT: ALTER SCHEMA
 
 -- Set the schema where you want to create the DB objects
-SET search_path TO emp;
+SET search_path TO emp; #OUTPUT: SET
 
 -- DDL Create Command
 -- Create dept table
