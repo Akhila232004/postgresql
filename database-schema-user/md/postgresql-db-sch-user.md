@@ -15,7 +15,7 @@
 ```sql
 -- Create a database named tinitiate
 CREATE DATABASE tinitiate;
-#OUTPUT:CREATE DATABASE
+#OUTPUT: Updated Rows: 0
 
 -- Alter the database tinitiate to set tablespace
 ALTER DATABASE tinitiate SET TABLESPACE pg_default;
@@ -30,15 +30,16 @@ ALTER DATABASE tinitiate SET TABLESPACE pg_default;
 * Users are granted permissions to interact with specific databases and schemas as per the database administrator's configuration.
 ```sql
 -- Create users
-CREATE USER tiuser WITH PASSWORD 'Tinitiate!23'; #OUTPUT: CREATE ROLE
-CREATE USER developer WITH PASSWORD 'Tinitiate!23'; #OUTPUT: CREATE ROLE
+CREATE USER tiuser WITH PASSWORD 'Tinitiate!23';
+#OUTPUT: Updated Rows: 0
+CREATE USER developer WITH PASSWORD 'Tinitiate!23'; #OUTPUT: Updated Rows: 0
 ```
 ## Schema:
 * Each database in PostgreSQL contains a logical grouping of database objects called schemas.
 * Schemas provide a way to organize and namespace database objects within a database.
 ```sql
 -- Create the schema with authorization to user
-CREATE SCHEMA employees AUTHORIZATION tiuser; #OUTPUT: CREATE SCHEMA
+CREATE SCHEMA employees AUTHORIZATION tiuser; #OUTPUT: Updated Rows: 0
 ```
 
 ##### [Back To Contents](/README.md)
