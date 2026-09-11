@@ -1,10 +1,10 @@
-![PostgreSQL Tinitiate Image](../postgresql_tinitiate.png)
+![PostgreSQL Tinitiate Image](/postgresql_tinitiate.png)
 
 # PostgreSQL Tutorial
 
 © TINITIATE.COM
 
-##### [Back To Contents](../README.md)
+##### [Back To Contents](/README.md)
 
 # DQL - Set Operations
 
@@ -116,7 +116,7 @@ FROM employees.emp
 WHERE sal > 2000;
 ```
 
-##### [Back To Contents](../README.md)
+##### [Back To Contents](/README.md)
 
 ---
 
