@@ -1,10 +1,10 @@
-![PostgreSQL Tinitiate Image](../postgresql_tinitiate.png)
+![PostgreSQL Tinitiate Image](/postgresql_tinitiate.png)
 
 # PostgreSQL Tutorial
 
 © TINITIATE.COM
 
-##### [Back To Contents](../README.md)
+##### [Back To Contents](/README.md)
 
 # PostgreSQL Data Types
 
@@ -140,7 +140,7 @@
 
     * **Example:** `flags VARBIT(16)`.
 
-##### [Back To Contents](../README.md)
+##### [Back To Contents](/README.md)
 
 ---
 
