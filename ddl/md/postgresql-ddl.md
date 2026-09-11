@@ -18,12 +18,12 @@
 USE DATABASE tinitiate;
 
 -- Schema DDL
-CREATE SCHEMA emp;
-CREATE USER ti WITH PASSWORD 'Tinitiate!23';
-ALTER SCHEMA emp OWNER TO ti;
+CREATE SCHEMA emp; #OUTPUT: Updated Rows: 0
+CREATE USER ti WITH PASSWORD 'Tinitiate!23'; #OUTPUT: Updated Rows: 0
+ALTER SCHEMA emp OWNER TO ti; #OUTPUT: Updated Rows: 0
 
 -- Set the schema where you want to create the DB objects
-SET search_path TO emp;
+SET search_path TO emp;  #OUTPUT: Updated Rows: 0
 
 -- DDL Create Command
 -- Create dept table
@@ -31,7 +31,7 @@ CREATE TABLE employees.dept (
     deptno INT,
     dname  VARCHAR(14),
     loc    VARCHAR(13)
-);
+); #OUTPUT: Updated Rows: 0
 
 
 -- Create emp table
@@ -43,21 +43,21 @@ CREATE TABLE employees.emp (
     sal          NUMERIC(7,2),
     commission   NUMERIC(7,2),
     deptno       INT
-);
+); #OUTPUT: Updated Rows: 0
 
 -- Create Salgrade table
 CREATE TABLE employees.salgrade (
     grade INT,
     losal INT,
     hisal INT
-);
+); #OUTPUT: Updated Rows: 0
 
 -- Create projects table
 CREATE TABLE employees.projects (
     projectno          INT,
     budget             NUMERIC(7,2),
     monthly_commission NUMERIC(7,2)
-);
+); #OUTPUT: Updated Rows: 0
 
 -- Create empprojects table
 CREATE TABLE employees.emp_projects (
@@ -66,7 +66,7 @@ CREATE TABLE employees.emp_projects (
     projectno     INT,
     start_date    DATE,
     end_date      DATE
-);
+); #OUTPUT: Updated Rows: 0
 
 ```
 
@@ -74,7 +74,7 @@ CREATE TABLE employees.emp_projects (
 * Modifies the structure of existing database objects, such as adding or dropping columns from a table.
 ```sql
 -- Alter table "dept": Rename the column "dname" to "department_name".
-ALTER TABLE emp.dept RENAME COLUMN dname TO department_name;
+ALTER TABLE employees.dept RENAME COLUMN dname TO department_name; #OUTPUT: Updated Rows: 0
 -- To change back to previous
 ALTER TABLE emp.dept RENAME COLUMN department_name TO dname;
 
