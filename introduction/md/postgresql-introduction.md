@@ -1,6 +1,5 @@
 ![PostgreSQL Tinitiate Image](postgresql_tinitiate.png)
-
-# PostgreSQL
+# PostgreSQL Tutorial
 &copy; TINITIATE.COM
 
 ##### [Back To Context](./README.md)
