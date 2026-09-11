@@ -2,7 +2,7 @@
 # PostgreSQL Tutorial
 &copy; TINITIATE.COM
 
-##### [Back To Context](https://github.com/Akhila232004/postgresql/blob/main/README.md)
+##### [Back To Context](README.md)
 
 # Introduction to PostgreSQL
 * PostgreSQL is a powerful, open-source object-relational database system.
