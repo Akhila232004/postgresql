@@ -7,21 +7,15 @@
 ##### [Back To Contents](/README.md)
 
 # DDL - Data Definition Language
-
-> **[postgresql-ddl.sql](../code/postgresql-ddl.sql) [CTRL + CLICK]**
-
-* In PostgreSQL, DDL (Data Definition Language) refers to a set of SQL commands used to define, modify, and remove the structure of database objects. These objects include tables, indexes, views, schemas, sequences, and more.
+* In PostgreSQL, DDL (Data Definition Language) refers to a set of SQL commands used to define, modify, and remove the structure of database objects. These objects include tables, indexes, views, schemas, sequences, and more. 
 * DDL statements are essential for setting up the database schema, defining relationships between tables, and ensuring data integrity. They provide the framework for organizing and managing data within PostgreSQL databases.
 
 ## Primary DDL commands in PostgreSQL:
-
 ### CREATE:
-
 * Used to create new database objects like tables, indexes, views, schemas, sequences, etc.
-
 ```sql
--- Connect to database
-\c tinitiate
+-- Use database
+USE DATABASE tinitiate;
 
 -- Schema DDL
 CREATE SCHEMA emp;
@@ -33,14 +27,15 @@ SET search_path TO emp;
 
 -- DDL Create Command
 -- Create dept table
-CREATE TABLE emp.dept (
+CREATE TABLE employees.dept (
     deptno INT,
     dname  VARCHAR(14),
     loc    VARCHAR(13)
 );
 
+
 -- Create emp table
-CREATE TABLE emp.emp (
+CREATE TABLE employees.emp (
     empno        INT,
     ename        VARCHAR(10),
     job          VARCHAR(9),
@@ -51,87 +46,57 @@ CREATE TABLE emp.emp (
 );
 
 -- Create Salgrade table
-CREATE TABLE emp.salgrade (
+CREATE TABLE employees.salgrade (
     grade INT,
     losal INT,
     hisal INT
 );
 
 -- Create projects table
-CREATE TABLE emp.projects (
+CREATE TABLE employees.projects (
     projectno          INT,
     budget             NUMERIC(7,2),
     monthly_commission NUMERIC(7,2)
 );
 
--- Create emp_projects table
-CREATE TABLE emp.emp_projects (
+-- Create empprojects table
+CREATE TABLE employees.emp_projects (
     emp_projectno INT,
     empno         INT,
     projectno     INT,
     start_date    DATE,
     end_date      DATE
 );
-```
 
-```output
-Output:
-CREATE SCHEMA
-CREATE ROLE
-ALTER SCHEMA
-SET
-CREATE TABLE
-CREATE TABLE
-CREATE TABLE
-CREATE TABLE
-CREATE TABLE
 ```
 
 ### ALTER:
-
 * Modifies the structure of existing database objects, such as adding or dropping columns from a table.
-
 ```sql
 -- Alter table "dept": Rename the column "dname" to "department_name".
 ALTER TABLE emp.dept RENAME COLUMN dname TO department_name;
-
 -- To change back to previous
 ALTER TABLE emp.dept RENAME COLUMN department_name TO dname;
 
 -- Alter table "emp": Add a new column called "hire_date" of type DATE.
 ALTER TABLE emp.emp ADD COLUMN hire_date DATE;
-
 -- To change back to previous
 ALTER TABLE emp.emp DROP COLUMN hire_date;
 
 -- Alter table "projects":
--- Change the data type of the column "budget" to DECIMAL(12,2).
-ALTER TABLE emp.projects ALTER COLUMN budget TYPE DECIMAL(12,2);
-
+-- Change the data type of the column "ProjectBudget" to DECIMAL(12,2).
+ALTER TABLE emp.projects ALTER COLUMN ProjectBudget TYPE DECIMAL(12,2);
 -- To change back to previous
-ALTER TABLE emp.projects ALTER COLUMN budget TYPE NUMERIC(12,2);
+ALTER TABLE emp.projects ALTER COLUMN ProjectBudget TYPE NUMERIC(12,2);
 
--- Alter table "emp_rojects": Drop the column "end_date".
-ALTER TABLE emp.emp_projects DROP COLUMN end_date;
-
+-- Alter table "EmpProjects": Drop the column "EndDate".
+ALTER TABLE emp.EmpProjects DROP COLUMN EndDate;
 -- To change back to previous
-ALTER TABLE emp.emp_projects ADD COLUMN end_date DATE;
-```
-
-```output
-Output:
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
-ALTER TABLE
+ALTER TABLE emp.EmpProjects ADD COLUMN EndDate DATE;
 ```
 
 ### DROP:
-
 * Deletes existing database objects, such as tables, indexes, or views.
-
 ```sql
 -- To drop dept table in emp schema
 DROP TABLE emp.dept;
@@ -141,12 +106,6 @@ CREATE TABLE emp.dept (
     deptid  integer,
     dname   varchar(100)
 );
-```
-
-```output
-Output:
-DROP TABLE
-CREATE TABLE
 ```
 
 ##### [Back To Contents](/README.md)
