@@ -26,9 +26,6 @@ ALTER DATABASE tinitiate SET TABLESPACE pg_default;
 * Users in PostgreSQL are individual logins that can access the database objects within a schema.
 * Users are granted permissions to interact with specific databases and schemas as per the database administrator's configuration.
 ```sql
--- Set tablespace to default
-ALTER DATABASE tinitiate SET TABLESPACE pg_default; 
-
 -- Create users
 CREATE USER tiuser WITH PASSWORD 'Tinitiate!23';
 CREATE USER developer WITH PASSWORD 'Tinitiate!23';
