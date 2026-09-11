@@ -122,8 +122,7 @@ ADD CONSTRAINT fk_project_id
 -- We can also specify this constraint while table creation; for example
 CREATE TABLE orders (
     order_id SERIAL PRIMARY KEY,
-    customer_id INTEGER REFERENCES customers(customer_id),
-    -- Assuming there is a column customer_id in customers table
+    customer_id INTEGER REFERENCES emp.customers(customer_id),
     order_date DATE
 );
 #OUTPUT: CREATE TABLE  
