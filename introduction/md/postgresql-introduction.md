@@ -1,4 +1,4 @@
-![PostgreSQL Tinitiate Image](https://github.com/Akhila232004/postgresql/blob/main/postgresql_tinitiate.png)
+![PostgreSQL Tinitiate Image](/postgresql_tinitiate.png)
 # PostgreSQL Tutorial
 &copy; TINITIATE.COM
 
@@ -28,7 +28,7 @@
 * PostgreSQL is a versatile and powerful database system that offers advanced features, scalability, and reliability.
 * Whether you're building a small application or a large-scale enterprise system, PostgreSQL is a solid choice for your database needs.
 
-##### [Back To Context](https://github.com/Akhila232004/postgresql/blob/main/README.md)
+##### [Back To Context](/README.md)
 ***
 | &copy; TINITIATE.COM |
 |----------------------|
