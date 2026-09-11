@@ -3,7 +3,7 @@
 &copy; TINITIATE.COM
 
 ## CONTEXT
-* ### [Introduction](postgresql-introduction.md)
+* ### [Introduction](https://github.com/Akhila232004/postgresql/blob/main/introduction/md/postgresql-introduction.md)
 * ### [Database, Schema, and User](postgresql-db-sch-user.md)
 * ### [Datatypes](postgresql-datatypes.md)
 * ### [DDL](postgresql-ddl.md)
