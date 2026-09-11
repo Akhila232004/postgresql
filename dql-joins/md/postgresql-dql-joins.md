@@ -1,10 +1,10 @@
-![PostgreSQL Tinitiate Image](../postgresql_tinitiate.png)
+![PostgreSQL Tinitiate Image](/postgresql_tinitiate.png)
 
 # PostgreSQL Tutorial
 
 © TINITIATE.COM
 
-##### [Back To Contents](../README.md)
+##### [Back To Contents](/README.md)
 
 # DQL - Joins
 
@@ -100,7 +100,7 @@ FROM employees.emp e
 CROSS JOIN employees.dept d;
 ```
 
-##### [Back To Contents](../README.md)
+##### [Back To Contents](/README.md)
 
 ---
 
