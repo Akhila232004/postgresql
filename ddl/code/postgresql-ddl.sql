@@ -63,7 +63,7 @@ end_date      DATE
 
 -- ALTER:
 -- Alter table "dept": Rename the column "dname" to "department_name".
-ALTER TABLE emp.dept RENAME COLUMN dname TO department_name;
+ALTER TABLE employees.dept RENAME COLUMN dname TO department_name;
 
 -- To change back to previous
 ALTER TABLE emp.dept RENAME COLUMN department_name TO dname;
