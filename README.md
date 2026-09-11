@@ -4,31 +4,31 @@
 
 ## CONTEXT
 * ### [Introduction](introduction/md/postgresql-introduction.md)
-* ### [Database, Schema, and User](postgresql-db-sch-user.md)
-* ### [Datatypes](postgresql-datatypes.md)
-* ### [DDL](postgresql-ddl.md)
+* ### [Database, Schema, and User](database-schema-user/md/postgresql-db-sch-user.md)
+* ### [Datatypes](data-types/md/postgresql-datatypes.md)
+* ### [DDL](ddl/md/postgresql-ddl.md)
     * Create
     * Alter
     * Drop
-* ### [DDL - Constraints](postgresql-ddl-constraints.md) 
+* ### [DDL - Constraints](ddl-constraints/md/postgresql-ddl-constraints.md) 
     * Not Null
     * Unique
     * Check
     * Primary key
     * Foreign key
-* ### [DML](postgresql-dml.md)
+* ### [DML](dml/md/postgresql-dml.md)
     * Insert
     * Update
     * Delete
-* ### [DQL Data Setup](postgresql-dql-data-setup.md)
-* ### [DQL](postgresql-dql.md)
+* ### [DQL Data Setup](dql-data-setup/md/postgresql-dql-data-setup.md)
+* ### [DQL](dql/md/postgresql-dql.md)
     * Select
     * Where
     * Group By
     * Having
     * Order By
     * Limit
-* ### [DQL - Basic Operators](postgresql-dql-basic-operators.md)
+* ### [DQL - Basic Operators](dql-basic-operators/md/postgresql-dql-basic-operators.md)
     * Equality Operator (=)
     * Inequality Operator (<>)
     * IN Operator
@@ -42,17 +42,17 @@
     * Less Than or Equal To (<=)
     * EXISTS Operator
     * NOT EXISTS Operator
-* ### [DQL - Set Operations](postgresql-dql-set-operations.md)
+* ### [DQL - Set Operations](dql-set-operations/md/postgresql-dql-set-operations.md)
     * Union
     * Intersect
     * Except
-* ### [DQL - Joins](postgresql-dql-joins.md)
+* ### [DQL - Joins](dql-joins/md/postgresql-dql-joins.md)
     * Inner Join
     * Left Join (or Left Outer Join)
     * Right Join (or Right Outer Join)
     * Full Join (or Full Outer Join)
     * Cross Join
-* ### [DQL - String Functions](postgresql-dql-string-functions.md)
+* ### [DQL - String Functions](dql-string-functions/md/postgresql-dql-string-functions.md)
     * Length Function (LENGTH)
     * Substring Function (SUBSTRING)
     * Concatenation Operator (||)
@@ -68,7 +68,7 @@
     * Replace Function (REPLACE)
     * Case Statement (CASE)
     * Coalesce Function (COALESCE)
-* ### [DQL - Date Functions](postgresql-dql-date-functions.md)
+* ### [DQL - Date Functions](dql-date-functions/md/postgresql-dql-date-functions.md)
     * Current Date (CURRENT_DATE)
     * Current Timestamp (CURRENT_TIMESTAMP)
     * Extract Function (EXTRACT)
@@ -91,13 +91,13 @@
             * Applying an Offset to a Date Datatype Column
         * Cast a DateTime to DateTime with TimeZone (in UTC, EST, and IST TimeZones)
         * Cast a DateTime Timezone to another TimeZone
-* ### [DQL - Aggregate Functions](postgresql-dql-aggregate-functions.md)
+* ### [DQL - Aggregate Functions](dql-aggregate-functions/md/postgresql-dql-aggregate-functions.md)
     * Count
     * Sum
     * Avg
     * Max
     * Min
-* ### [DQL - Analytical Functions](postgresql-dql-analytical-functions.md)
+* ### [DQL - Analytical Functions](dql-analytical-functions/md/postgresql-dql-analytical-functions.md)
     * Aggregate Functions
     * ROW_NUMBER()
     * RANK()
@@ -107,7 +107,7 @@
     * LEAD()
     * FIRST_VALUE()
     * LAST_VALUE()
-* ### [DQL - Common Table Expressions (CTEs)](postgresql-dql-cte.md)
+* ### [DQL - Common Table Expressions (CTEs)](common-table-expressions/md/postgresql-dql-cte.md)
     * Creating a CTE
     * Using Multiple CTEs
     * Recursive CTEs
