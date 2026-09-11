@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
 
-* Organization : TINITIATE TECHNOLOGIES PVT LTD
+* Organization : TINITIATEAI SOLUTIONS
 * Website      : tinitiate.com
 * Script Title : PostgreSQL Tutorial
 * Description  : Database, Schema, and User
