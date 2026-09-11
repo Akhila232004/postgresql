@@ -1,4 +1,4 @@
-![PostgreSQL Tinitiate Image](postgresql_tinitiate.png)
+![PostgreSQL Tinitiate Image](https://github.com/Akhila232004/postgresql/blob/main/postgresql_tinitiate.png)
 # PostgreSQL Tutorial
 &copy; TINITIATE.COM
 
