@@ -1,10 +1,10 @@
-![PostgreSQL Tinitiate Image](../postgresql_tinitiate.png)
+![PostgreSQL Tinitiate Image](/postgresql_tinitiate.png)
 
 # PostgreSQL Tutorial
 
 © TINITIATE.COM
 
-##### [Back To Contents](../README.md)
+##### [Back To Contents](/README.md)
 
 # DQL Data Setup
 
@@ -289,7 +289,7 @@ INSERT INTO employees.emp_projects (
      VALUES (14, 7934, 1, '1984-01-01', '1984-12-31');
 ```
 
-##### [Back To Contents](../README.md)
+##### [Back To Contents](/README.md)
 
 ---
 
