@@ -1,10 +1,10 @@
-![PostgreSQL Tinitiate Image](../postgresql_tinitiate.png)
+![PostgreSQL Tinitiate Image](/postgresql_tinitiate.png)
 
 # PostgreSQL Tutorial
 
 © TINITIATE.COM
 
-##### [Back To Contents](../README.md)
+##### [Back To Contents](/README.md)
 
 # DQL - Data Query Language
 
@@ -150,7 +150,7 @@ FROM employees.emp
 LIMIT 5 OFFSET 10;
 ```
 
-##### [Back To Contents](../README.md)
+##### [Back To Contents](/README.md)
 
 ---
 
