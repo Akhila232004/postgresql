@@ -15,9 +15,9 @@
 * You can specify the values to be inserted into each column of the table.
 ```sql
 -- Insert with column created order
-INSERT INTO emp.dept (deptid, dname) VALUES (1000, 'PRODUCTION');
-INSERT INTO emp.emp (empid, ename, sal, deptid) VALUES
-(101, 'John Doe', 5000.00, 1000);
+INSERT INTO emp.dept (deptid, dname) VALUES (1000, 'PRODUCTION'); #OUTPUT: INSERT 0 1
+INSERT INTO emp.emp (empno, ename, sal, deptno) VALUES
+(101, 'John Doe', 5000.00, 1000); #OUTPUT: INSERT 0 1
 INSERT INTO emp (empid, ename, sal, deptid) VALUES
 (102, 'Jane Smith', 6000.00, 2000);
 
