@@ -1,6 +1,6 @@
 ﻿/*******************************************************************************
 
-* Organization : TINITIATE TECHNOLOGIES PVT LTD
+* Organization : TINITIATEAI SOLUTIONS
 * Website      : tinitiate.com
 * Script Title : PostgreSQL Tutorial
 * Description  : DDL - Data Definition Language
@@ -8,11 +8,11 @@
   *******************************************************************************/
 
 -- CREATE:
--- Connect to database
+-- Connect to the tinitiate database 
 \c tinitiate
 
 -- Schema DDL
-CREATE SCHEMA emp;
+CREATE SCHEMA emp; 
 CREATE USER ti WITH PASSWORD 'Tinitiate!23';
 ALTER SCHEMA emp OWNER TO ti;
 
