@@ -73,39 +73,39 @@ CREATE TABLE employees.emp_projects (
 ### ALTER:
 * Modifies the structure of existing database objects, such as adding or dropping columns from a table.
 ```sql
--- Alter table "dept": Rename the column "dname" to "department_name".
+-- Alter table "employees.dept": Rename the column "dname" to "department_name".
 ALTER TABLE employees.dept RENAME COLUMN dname TO department_name; #OUTPUT: Updated Rows: 0
 -- To change back to previous
-ALTER TABLE emp.dept RENAME COLUMN department_name TO dname;
+ALTER TABLE employees.dept RENAME COLUMN department_name TO dname; #OUTPUT: Updated Rows: 0
 
--- Alter table "emp": Add a new column called "hire_date" of type DATE.
-ALTER TABLE emp.emp ADD COLUMN hire_date DATE;
+-- Alter table "employees.emp": Add a new column called "hire_date" of type DATE.
+ALTER TABLE employees.emp ADD COLUMN hire_date DATE; #OUTPUT: Updated Rows: 0
 -- To change back to previous
-ALTER TABLE emp.emp DROP COLUMN hire_date;
+ALTER TABLE employees.emp DROP COLUMN hire_date; #OUTPUT: Updated Rows: 0
 
--- Alter table "projects":
--- Change the data type of the column "ProjectBudget" to DECIMAL(12,2).
-ALTER TABLE emp.projects ALTER COLUMN ProjectBudget TYPE DECIMAL(12,2);
+-- Alter table "employees.projects":
+-- Change the data type of the column "budget" to DECIMAL(12,2).
+ALTER TABLE employees.projects ALTER COLUMN budget TYPE DECIMAL(12,2); #OUTPUT: Updated Rows: 0
 -- To change back to previous
-ALTER TABLE emp.projects ALTER COLUMN ProjectBudget TYPE NUMERIC(12,2);
+ALTER TABLE employees.projects ALTER COLUMN budget TYPE NUMERIC(12,2); #OUTPUT: Updated Rows: 0
 
--- Alter table "EmpProjects": Drop the column "EndDate".
-ALTER TABLE emp.EmpProjects DROP COLUMN EndDate;
+-- Alter table "employees.emp_rojects": Drop the column "end_date".
+ALTER TABLE employees.emp_projects DROP COLUMN end_date; #OUTPUT: Updated Rows: 0
 -- To change back to previous
-ALTER TABLE emp.EmpProjects ADD COLUMN EndDate DATE;
+ALTER TABLE employees.emp_projects ADD COLUMN end_date DATE; #OUTPUT: Updated Rows: 0
 ```
 
 ### DROP:
 * Deletes existing database objects, such as tables, indexes, or views.
 ```sql
 -- To drop dept table in emp schema
-DROP TABLE emp.dept;
+DROP TABLE emp.dept; #OUTPUT: Updated Rows: 0
 
 -- To again create it
 CREATE TABLE emp.dept (
     deptid  integer,
     dname   varchar(100)
-);
+);  #OUTPUT: Updated Rows: 0
 ```
 
 ##### [Back To Contents](/README.md)
