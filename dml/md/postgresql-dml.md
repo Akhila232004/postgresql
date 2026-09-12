@@ -16,6 +16,7 @@
 * You can specify the values to be inserted into each column of the table.
 ```sql
 -- Insert with column created order
+<<<<<<< HEAD
 INSERT INTO emp.dept (deptid, dname) VALUES (1000, 'PRODUCTION');
 INSERT INTO emp.emp (empid, ename, sal, deptid) VALUES
 (101, 'John Doe', 5000.00, 1000);
@@ -30,24 +31,54 @@ INSERT INTO emp.dept (dname, deptid) VALUES ('STORES', 3000);
 
 -- Insert without schema mentioning untill you are in the same schema
 INSERT INTO dept (deptid, dname) VALUES (4000, 'SALES');
+=======
+INSERT INTO emp.dept (deptid, dname) VALUES (1000, 'PRODUCTION'); #OUTPUT: Updated Rows: 1
+INSERT INTO employees.emp (empno, ename, sal, deptno)
+VALUES (101, 'John Doe', 5000.00, 1000); #OUTPUT: Updated Rows: 1
+INSERT INTO employees.dept (deptno, dname)
+VALUES (2000, 'PRODUCTION');#OUTPUT: Updated Rows: 1
+INSERT INTO employees.emp (empno, ename, sal, deptno)
+VALUES (102, 'Jane Smith', 6000.00, 2000); #OUTPUT: Updated Rows: 1
+
+-- Insert with column names, use positional values
+INSERT INTO emp.dept VALUES (2000, 'FOUNDRY'); #OUTPUT: Updated Rows: 1
+
+-- Insert with column names, different order
+INSERT INTO emp.dept (dname, deptid) VALUES ('STORES', 3000); #OUTPUT: Updated Rows: 1
+
+-- Insert without schema mentioning untill you are in the same schema
+INSERT INTO dept (deptid, dname) VALUES (4000, 'SALES'); #OUTPUT: Updated Rows: 1
+>>>>>>> 1b5d234 (Updated DML and DDL constraints)
 
 -- Insert all, Insert more data in single insert
 INSERT INTO emp.dept (deptid, dname)
 VALUES 
     (111, 'TECHNOLOGY'),
     (211, 'FACTORY'),
+<<<<<<< HEAD
     (311, 'RETAIL');
+=======
+    (311, 'RETAIL'); #OUTPUT: Updated Rows: 3
+>>>>>>> 1b5d234 (Updated DML and DDL constraints)
 
 -- Insert with select statement (Copy data from another table)
 -- Create table dept1
 CREATE TABLE emp.dept1 (
     deptid INT,
     dname VARCHAR(100)
+<<<<<<< HEAD
 );
 -- Insert data from dept into dept1
 INSERT INTO emp.dept1 (deptid, dname)
 SELECT deptid, dname
 FROM emp.dept;
+=======
+); #OUTPUT: Updated Rows: 0
+-- Insert data from dept into dept1
+INSERT INTO emp.dept1 (deptid, dname)
+SELECT deptid, dname
+FROM emp.dept; OUTPUT: Updated Rows: 7
+>>>>>>> 1b5d234 (Updated DML and DDL constraints)
 
 -- Incorrect data violations
 -- Primary Key violation
@@ -79,6 +110,7 @@ UPDATE emp.EmpProjects SET EndDate = '2024-06-01'
 ```sql
 -- Delete a dept
 DELETE FROM emp.dept WHERE deptid = 3000;
+<<<<<<< HEAD
 
 
 -- Remove an employee
@@ -86,6 +118,16 @@ DELETE FROM employees.emp
 WHERE empno = 101;
 
 ```
+=======
+
+
+-- Remove an employee
+DELETE FROM employees.emp
+WHERE empno = 101;
+
+```
+
+>>>>>>> 1b5d234 (Updated DML and DDL constraints)
 ##### [Back To Contents](/README.md)
 
 ---
