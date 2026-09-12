@@ -7,9 +7,8 @@
 * Author       : Team Tinitiate
   *******************************************************************************/
 
--- CREATE:
--- Connect to the tinitiate database 
-\c tinitiate
+-- Use database
+USE DATABASE tinitiate;
 
 -- Schema DDL
 CREATE SCHEMA emp; 
