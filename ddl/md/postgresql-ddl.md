@@ -113,4 +113,3 @@ CREATE TABLE emp.dept (
 ---
 
 | © TINITIATE.COM |
-| --------------- |
