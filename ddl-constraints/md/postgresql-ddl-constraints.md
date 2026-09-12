@@ -7,9 +7,6 @@
 ##### [Back To Contents](/README.md)
 
 # DDL - Constraints
-
-> **[postgresql-ddl-constraints.sql](../code/postgresql-ddl-constraints.sql) [CTRL + CLICK]**
-
 * In PostgreSQL, constraints are rules enforced on table columns to maintain data integrity and consistency.
 * Constraints can be defined when creating a table or added later using the `ALTER TABLE` command.
 
