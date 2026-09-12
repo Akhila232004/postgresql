@@ -7,111 +7,111 @@
 ##### [Back To Contents](/README.md)
 
 # DDL - Constraints
-* In PostgreSQL, constraints are rules enforced on table columns to maintain data integrity and consistency.
-* Constraints can be defined when creating a table or added later using the `ALTER TABLE` command.
+* In PostgreSQL, Data Definition Language (DDL) constraints are rules applied to the structure of a database table.
+* These constraints ensure data integrity and consistency by enforcing certain conditions on the data being inserted, updated, or deleted in the table.
+* These constraints are applied to columns when the table is created or altered.
 
-## NOT NULL Constraint:
-
-* The `NOT NULL` constraint ensures that a column cannot contain `NULL` values.
-
+## Here are the common types of DDL constraints in PostgreSQL:
+### NOT NULL Constraint:
+* This constraint ensures that a column cannot contain NULL values.
+* It enforces that every row in the table must have a value for that column.
 ```sql
--- Create table with NOT NULL constraint
-CREATE TABLE emp.dept (
-    deptno INT NOT NULL,
-    dname  VARCHAR(14),
-    loc    VARCHAR(13)
+-- NOT NULL Constraint on empid and ename columns in the emp table
+ALTER TABLE emp
+ALTER COLUMN empid SET NOT NULL,
+ALTER COLUMN ename SET NOT NULL;
+
+-- We can also specify this constraint while table creation; for example 
+CREATE TABLE staff (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    age INTEGER
 );
 ```
 
-```output
-Output:
-CREATE TABLE
-```
-
-## UNIQUE Constraint:
-
-* The `UNIQUE` constraint ensures that all values in a column are different.
-
+### UNIQUE Constraint:
+* This constraint ensures that the values in a column (or a group of columns) are unique across all rows in the table.
 ```sql
--- Create table with UNIQUE constraint
-CREATE TABLE emp.dept (
-    deptno INT UNIQUE,
-    dname  VARCHAR(14),
-    loc    VARCHAR(13)
+-- UNIQUE Constraint to the empid column in the emp table
+ALTER TABLE emp
+ADD CONSTRAINT unique_empid UNIQUE (empid);
+
+-- We can also specify this constraint while table creation; for example
+CREATE TABLE students (
+    student_id SERIAL,
+    email VARCHAR UNIQUE,
+    name VARCHAR
 );
 ```
 
-```output
-Output:
-CREATE TABLE
-```
-
-## CHECK Constraint:
-
-* The `CHECK` constraint ensures that all values in a column satisfy a specific condition.
-
+### CHECK Constraint:
+* This constraint specifies a condition that must be satisfied for each row in the table.
+* It allows you to define custom rules for data validation.
 ```sql
--- Create table with CHECK constraint
-CREATE TABLE emp.emp (
-    empno INT,
-    ename VARCHAR(10),
-    sal   NUMERIC(7,2) CHECK (sal > 0),
-    deptno INT
+-- CHECK Constraint on ProjectBudget column in the projects table
+ALTER TABLE projects
+ADD CONSTRAINT chk_project_budget CHECK (ProjectBudget > 0);
+
+-- We can also specify this constraint while table creation; for example
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    product_name VARCHAR,
+    price DECIMAL,
+    quantity INTEGER,
+    CHECK (price > 0 AND quantity >= 0)
 );
 ```
 
-```output
-Output:
-CREATE TABLE
-```
-
-## PRIMARY KEY Constraint:
-
-* The `PRIMARY KEY` constraint uniquely identifies each row in a table.
-* A primary key cannot contain `NULL` values and must contain unique values.
-
+### PRIMARY KEY Constraint:
+* This constraint uniquely identifies each record in a table and ensures that there are no duplicate values in the specified column(s).
 ```sql
--- Create table with PRIMARY KEY constraint
-CREATE TABLE emp.dept (
-    deptno INT PRIMARY KEY,
-    dname  VARCHAR(14),
-    loc    VARCHAR(13)
+-- PRIMARY KEY Constraint on deptid column in the dept table
+ALTER TABLE dept
+ADD CONSTRAINT pk_dept PRIMARY KEY (deptid);
+
+-- PRIMARY KEY Constraint on empid column in the emp table
+ALTER TABLE emp 
+ADD CONSTRAINT pk_emp PRIMARY KEY (empid);
+
+-- PRIMARY KEY Constraint on projectid column in the projects table
+ALTER TABLE projects 
+ADD CONSTRAINT pk_projects PRIMARY KEY (ProjectID);
+
+-- PRIMARY KEY Constraint on EP_ID column in the EmpProjects table
+ALTER TABLE EmpProjects
+ADD CONSTRAINT pk_empprojects PRIMARY KEY (EP_ID);
+
+-- We can also specify this constraint while table creation; for example
+CREATE TABLE customers (
+    customer_id INTEGER PRIMARY KEY,
+    order_date DATE
 );
 ```
 
-```output
-Output:
-CREATE TABLE
-```
-
-## FOREIGN KEY Constraint:
-
-* The `FOREIGN KEY` constraint is used to establish a relationship between two tables.
-* A foreign key references a primary key or unique key in another table.
-
+### FOREIGN KEY Constraint:
+* This constraint establishes a relationship between two tables.
+* It ensures referential integrity by enforcing a link between the data in the foreign key column(s) and the primary key or unique key in another table.
 ```sql
--- Create parent table
-CREATE TABLE emp.dept (
-    deptno INT PRIMARY KEY,
-    dname  VARCHAR(14),
-    loc    VARCHAR(13)
-);
+-- FOREIGN KEY Constraint on deptid column in the emp table referencing
+-- the deptid column in the dept table
+ALTER TABLE emp
+ADD CONSTRAINT fk_deptid FOREIGN KEY (deptid) REFERENCES dept(deptid);
 
--- Create child table with FOREIGN KEY constraint
-CREATE TABLE emp.emp (
-    empno  INT PRIMARY KEY,
-    ename  VARCHAR(10),
-    deptno INT,
-    CONSTRAINT fk_emp_dept
-        FOREIGN KEY (deptno)
-        REFERENCES emp.dept(deptno)
-);
-```
+-- FOREIGN KEY Constraints on EmpID and ProjectID columns in the
+-- EmpProjects table referencing the respective columns in the
+-- emp and projects tables
+ALTER TABLE EmpProjects
+ADD CONSTRAINT fk_emp_id FOREIGN KEY (EmpID) REFERENCES emp(empid),
+ADD CONSTRAINT fk_project_id FOREIGN KEY (ProjectID)
+ REFERENCES projects(ProjectID);
 
-```output
-Output:
-CREATE TABLE
-CREATE TABLE
+-- We can also specify this constraint while table creation; for example
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+    customer_id INTEGER REFERENCES customers(customer_id),
+    -- Assuming there is a column customer_id in customers table
+    order_date DATE
+);
 ```
 
 ##### [Back To Contents](/README.md)
