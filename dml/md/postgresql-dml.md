@@ -6,7 +6,6 @@
 
 ##### [Back To Contents](/README.md)
 
-
 # DML - Data Manipulation Language
 * In PostgreSQL, DML (Data Manipulation Language) consists of SQL commands that allow users to manipulate data within a database.
 * DML commands are used to perform operations such as inserting, updating and  deleting.
@@ -85,6 +84,7 @@ DELETE FROM emp.dept WHERE deptid = 3000;
 -- Remove an employee
 DELETE FROM employees.emp
 WHERE empno = 101;
+
 ```
 ##### [Back To Contents](/README.md)
 
