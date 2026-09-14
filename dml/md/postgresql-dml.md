@@ -16,81 +16,71 @@
 * You can specify the values to be inserted into each column of the table.
 ```sql
 -- Insert with column created order
-<<<<<<< HEAD
-INSERT INTO emp.dept (deptid, dname) VALUES (1000, 'PRODUCTION');
-INSERT INTO emp.emp (empid, ename, sal, deptid) VALUES
+INSERT INTO employees.dept (deptno, dname) VALUES (1000, 'PRODUCTION'); 
+
+INSERT INTO employees.emp (empno, ename, sal, deptno) VALUES
 (101, 'John Doe', 5000.00, 1000);
-INSERT INTO emp (empid, ename, sal, deptid) VALUES
+
+INSERT INTO employees.emp (empno, ename, sal, deptno) VALUES
 (102, 'Jane Smith', 6000.00, 2000);
 
 -- Insert with column names, use positional values
-INSERT INTO emp.dept VALUES (2000, 'FOUNDRY');
+INSERT INTO employees.dept VALUES (2000, 'FOUNDRY');
 
 -- Insert with column names, different order
-INSERT INTO emp.dept (dname, deptid) VALUES ('STORES', 3000);
+INSERT INTO employees.dept (dname, deptno) VALUES ('STORES', 3000);
 
 -- Insert without schema mentioning untill you are in the same schema
-INSERT INTO dept (deptid, dname) VALUES (4000, 'SALES');
-=======
-INSERT INTO emp.dept (deptid, dname) VALUES (1000, 'PRODUCTION'); #OUTPUT: Updated Rows: 1
-INSERT INTO employees.emp (empno, ename, sal, deptno)
-VALUES (101, 'John Doe', 5000.00, 1000); #OUTPUT: Updated Rows: 1
-INSERT INTO employees.dept (deptno, dname)
-VALUES (2000, 'PRODUCTION');#OUTPUT: Updated Rows: 1
-INSERT INTO employees.emp (empno, ename, sal, deptno)
-VALUES (102, 'Jane Smith', 6000.00, 2000); #OUTPUT: Updated Rows: 1
-
--- Insert with column names, use positional values
-INSERT INTO emp.dept VALUES (2000, 'FOUNDRY'); #OUTPUT: Updated Rows: 1
-
--- Insert with column names, different order
-INSERT INTO emp.dept (dname, deptid) VALUES ('STORES', 3000); #OUTPUT: Updated Rows: 1
-
--- Insert without schema mentioning untill you are in the same schema
-INSERT INTO dept (deptid, dname) VALUES (4000, 'SALES'); #OUTPUT: Updated Rows: 1
->>>>>>> 1b5d234 (Updated DML and DDL constraints)
+INSERT INTO employees.dept (deptno, dname) VALUES (4000, 'SALES');
 
 -- Insert all, Insert more data in single insert
-INSERT INTO emp.dept (deptid, dname)
+INSERT INTO employees.dept (deptno, dname)
 VALUES 
     (111, 'TECHNOLOGY'),
     (211, 'FACTORY'),
-<<<<<<< HEAD
-    (311, 'RETAIL');
-=======
-    (311, 'RETAIL'); #OUTPUT: Updated Rows: 3
->>>>>>> 1b5d234 (Updated DML and DDL constraints)
+    (311, 'RETAIL'); 
 
 -- Insert with select statement (Copy data from another table)
 -- Create table dept1
-CREATE TABLE emp.dept1 (
-    deptid INT,
+CREATE TABLE employees.dept1 (
+    deptno INT,
     dname VARCHAR(100)
-<<<<<<< HEAD
 );
+
 -- Insert data from dept into dept1
-INSERT INTO emp.dept1 (deptid, dname)
-SELECT deptid, dname
-FROM emp.dept;
-=======
-); #OUTPUT: Updated Rows: 0
--- Insert data from dept into dept1
-INSERT INTO emp.dept1 (deptid, dname)
-SELECT deptid, dname
-FROM emp.dept; OUTPUT: Updated Rows: 7
->>>>>>> 1b5d234 (Updated DML and DDL constraints)
+INSERT INTO employees.dept1 (deptno, dname)
+SELECT deptno, dname
+FROM employees.dept;
 
 -- Incorrect data violations
+
 -- Primary Key violation
-INSERT INTO emp.dept (deptid, dname) VALUES (4000, 'MARKETING');
+INSERT INTO employees.dept (deptno, dname) VALUES (4000, 'MARKETING');
 
 -- DataType Size violation
-INSERT INTO emp.dept (deptid, dname) 
+INSERT INTO employees.dept (deptno, dname) 
 VALUES (6, 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
 
 -- Foreign Key violation
-INSERT INTO emp.emp VALUES (16, '4A', 11000.00, 6);
+INSERT INTO employees.emp (
+    empno,
+    ename,
+    job,
+    mgr,
+    sal,
+    commission,
+    deptno
+)
+VALUES (
+    16,
+    '4A',
+    NULL,
+    NULL,
+    11000.00,
+    NULL,
+    6
+);
 ```
 
 ### UPDATE:
@@ -98,36 +88,25 @@ INSERT INTO emp.emp VALUES (16, '4A', 11000.00, 6);
 * You can update one or more columns of existing rows based on a specified condition.
 ```sql
 -- Update salary of an employee
-UPDATE emp.emp SET sal = 6200.00 WHERE empid = 101;
+UPDATE employees.emp SET sal = 6200.00 WHERE empno = 101;
 
 -- Update project end date
-UPDATE emp.EmpProjects SET EndDate = '2024-06-01'
- WHERE ProjectID = 1 AND EmpID = 101;
+UPDATE employees.emp_projects
+SET end_date = '2024-06-01'
+WHERE projectno = 1 AND empno = 101;
 ```
 
 ### DELETE:
 * This command is used to remove one or more rows from a table based on a specified condition.
 ```sql
 -- Delete a dept
-DELETE FROM emp.dept WHERE deptid = 3000;
-<<<<<<< HEAD
-
+DELETE FROM employees.dept WHERE deptno = 3000;
 
 -- Remove an employee
 DELETE FROM employees.emp
 WHERE empno = 101;
 
 ```
-=======
-
-
--- Remove an employee
-DELETE FROM employees.emp
-WHERE empno = 101;
-
-```
-
->>>>>>> 1b5d234 (Updated DML and DDL constraints)
 ##### [Back To Contents](/README.md)
 
 ---

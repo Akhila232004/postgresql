@@ -62,8 +62,8 @@ FROM employees.emp;
 * The `TRIM` function removes leading and trailing spaces from a string.
 
 ```sql
-SELECT TRIM(ename)
-FROM employees.emp;
+    SELECT TRIM(ename)
+    FROM employees.emp;
 ```
 
 ## LTRIM:

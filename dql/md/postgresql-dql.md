@@ -7,18 +7,13 @@
 ##### [Back To Contents](/README.md)
 
 # DQL - Data Query Language
-
-> **[postgresql-dql.sql](../code/postgresql-dql.sql) [CTRL + CLICK]**
-
 * In PostgreSQL, DQL (Data Query Language) refers to the subset of SQL (Structured Query Language) specifically designed for querying and retrieving data from a PostgreSQL database.
 * DQL primarily involves the use of SELECT statements to extract information from one or more tables within the database.
 
 ## SELECT Statement
-
 * The fundamental component of DQL is the SELECT statement, which is used to retrieve data from one or more tables in the database.
 * It allows users to specify the columns they want to retrieve from one or more tables in the database.
 * SELECT statements can also include various clauses for filtering, sorting, and grouping the data.
-
 ```sql
 -- Retrieve all columns from the emp table
 SELECT *
@@ -37,15 +32,11 @@ SELECT DISTINCT job AS employeejob FROM employees.emp;
 ```
 
 ## Commonly used clauses in PostgreSQL:
-
 * In PostgreSQL DQL, clauses are components of SQL (Structured Query Language) statements that provide additional instructions or conditions to control the behavior of the query.
 * Clauses can be used in various SQL statements such as SELECT, INSERT, UPDATE, DELETE, and more.
 * These clauses allow users to filter, manipulate, and organize data according to specific requirements.
-
 ### WHERE Clause:
-
 * The WHERE clause is used to filter rows based on specified conditions.
-
 ```sql
 -- Retrieve employees with a specific job title
 SELECT * FROM employees.emp WHERE job = 'manager';
@@ -60,11 +51,8 @@ SELECT *
 FROM employees.emp
 WHERE sal > 2000;
 ```
-
 ### GROUP BY Clause:
-
 * The GROUP BY clause is used to group rows that have the same values into summary rows.
-
 ```sql
 -- Calculate the total salary expense for each dept
 SELECT deptno, SUM(sal) AS total_salary
@@ -81,11 +69,8 @@ SELECT deptno, AVG(commission) AS avg_commission
 FROM employees.emp
 GROUP BY deptno;
 ```
-
 ### HAVING Clause:
-
 * The HAVING clause is used to filter groups of rows returned by a GROUP BY clause.
-
 ```sql
 -- Retrieve departments with more than two employees
 SELECT deptno, COUNT(*) AS num_employees
@@ -105,11 +90,8 @@ FROM employees.emp
 GROUP BY deptno
 HAVING SUM(sal) > 10000;
 ```
-
 ### ORDER BY Clause:
-
 * The ORDER BY clause is used to sort the result set based on specified columns.
-
 ```sql
 -- Retrieve employees sorted by salary in descending order
 SELECT *
@@ -127,11 +109,8 @@ SELECT *
 FROM employees.emp
 ORDER BY deptno ASC, sal DESC;
 ```
-
 ### LIMIT Clause:
-
 * The LIMIT clause is used to limit the number of rows returned by a query.
-
 ```sql
 -- Retrieve the first 5 employees
 SELECT *

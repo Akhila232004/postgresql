@@ -34,7 +34,7 @@ CREATE TABLE staff (
 ```sql
 -- UNIQUE Constraint to the empid column in the employees.emp table
 ALTER TABLE employees.emp
-ADD CONSTRAINT unique_empid UNIQUE (empno); #OUTPUT: Updated Rows: 0
+ADD CONSTRAINT unique_empno UNIQUE (empno); #OUTPUT: Updated Rows: 0
 -- We can also specify this constraint while table creation; for example
 CREATE TABLE students (
     student_id SERIAL,
@@ -72,11 +72,11 @@ ADD CONSTRAINT pk_dept PRIMARY KEY (deptno);  #OUTPUT: Updated Rows: 0
 ALTER TABLE employees.emp
 ADD CONSTRAINT pk_emp PRIMARY KEY (empno); #OUTPUT: Updated Rows: 0
 
--- PRIMARY KEY Constraint on projecno column in the employees.projects table
+-- PRIMARY KEY Constraint on projectno column in the employees.projects table
 ALTER TABLE employees.projects
 ADD CONSTRAINT pk_projects PRIMARY KEY (projectno); #OUTPUT: Updated Rows: 0
 
--- PRIMARY KEY Constraint on emp_projectno column in the employees.emp_rojects table
+-- PRIMARY KEY Constraint on emp_projectno column in the employees.emp_projects table
 ALTER TABLE employees.emp_projects
 ADD CONSTRAINT pk_empprojects PRIMARY KEY (emp_projectno); #OUTPUT: Updated Rows: 0
 
@@ -91,21 +91,23 @@ CREATE TABLE customers (
 * This constraint establishes a relationship between two tables.
 * It ensures referential integrity by enforcing a link between the data in the foreign key column(s) and the primary key or unique key in another table.
 ```sql
--- FOREIGN KEY Constraint on deptid column in the employees.emp table referencing
--- the deptid column in the employees.dept table
+-- FOREIGN KEY Constraint on deptno column in the employees.emp table referencing
+-- the deptno column in the employees.dept table
+
 ALTER TABLE employees.emp
-ADD CONSTRAINT fk_deptid
+ADD CONSTRAINT fk_deptno
 FOREIGN KEY (deptno)
 REFERENCES employees.dept(deptno); #OUTPUT: Updated Rows: 0
 
--- FOREIGN KEY Constraints on emp_id and project_id columns in the
+-- FOREIGN KEY Constraints on empno and projectno columns in the
 -- employees.emp_projects table referencing the respective columns in the
 -- employees.emp and employees.projects tables
+
 ALTER TABLE employees.emp_projects
-ADD CONSTRAINT fk_emp_id
+ADD CONSTRAINT fk_empno
 FOREIGN KEY (empno)
 REFERENCES employees.emp(empno),
-ADD CONSTRAINT fk_project_id
+ADD CONSTRAINT fk_projectno
 FOREIGN KEY (projectno)
 REFERENCES employees.projects(projectno); #OUTPUT: Updated Rows: 0
 
