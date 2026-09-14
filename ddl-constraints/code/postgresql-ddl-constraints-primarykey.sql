@@ -12,15 +12,15 @@
 ALTER TABLE employees.dept
 ADD CONSTRAINT pk_dept PRIMARY KEY (deptno);  
 
--- PRIMARY KEY Constraint on empno column in the emp table
+-- PRIMARY KEY Constraint on empno column in the employees.emp table
 ALTER TABLE employees.emp
-ADD CONSTRAINT pk_emp PRIMARY KEY (empno);
+ADD CONSTRAINT pk_emp PRIMARY KEY (empno); 
 
--- PRIMARY KEY Constraint on projectno column in the employeesprojects table
+-- PRIMARY KEY Constraint on projectno column in the employees.projects table
 ALTER TABLE employees.projects
 ADD CONSTRAINT pk_projects PRIMARY KEY (projectno); 
 
--- PRIMARY KEY Constraint on  column in the employees.emp_projects table
+-- PRIMARY KEY Constraint on emp_projectno column in the employees.emp_projects table
 ALTER TABLE employees.emp_projects
 ADD CONSTRAINT pk_empprojects PRIMARY KEY (emp_projectno); 
 

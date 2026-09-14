@@ -15,11 +15,11 @@
 ```sql
 -- Create a database named tinitiate
 CREATE DATABASE tinitiate;
-#OUTPUT: Updated Rows: 0
+
 
 -- Alter the database tinitiate to set tablespace
 ALTER DATABASE tinitiate SET TABLESPACE pg_default;
-#OUTPUT: Updated Rows: 0
+
 
 -- PostgreSQL commands are generally case-insensitive
 -- We can use uppercase or lowercase or mix of both for commands 
@@ -31,15 +31,15 @@ ALTER DATABASE tinitiate SET TABLESPACE pg_default;
 ```sql
 -- Create users
 CREATE USER tiuser WITH PASSWORD 'Tinitiate!23';
-#OUTPUT: Updated Rows: 0
-CREATE USER developer WITH PASSWORD 'Tinitiate!23'; #OUTPUT: Updated Rows: 0
+
+CREATE USER developer WITH PASSWORD 'Tinitiate!23'; 
 ```
 ## Schema:
 * Each database in PostgreSQL contains a logical grouping of database objects called schemas.
 * Schemas provide a way to organize and namespace database objects within a database.
 ```sql
 -- Create the schema with authorization to user
-CREATE SCHEMA employees AUTHORIZATION tiuser; #OUTPUT: Updated Rows: 0
+CREATE SCHEMA employees AUTHORIZATION tiuser; 
 ```
 
 ##### [Back To Contents](/README.md)

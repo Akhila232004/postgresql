@@ -10,4 +10,4 @@
 -- SCHEMA:
 -- Create the schema named employees
 -- and assign ownership to the tiuser role
-CREATE SCHEMA employees AUTHORIZATION tiuser;
+CREATE SCHEMA employees AUTHORIZATION tiuser; 

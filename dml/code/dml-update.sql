@@ -9,8 +9,9 @@
 
 -- UPDATE:
 -- Update salary of an employee
-UPDATE emp.emp SET sal = 6200.00 WHERE empid = 101;
+UPDATE employees.emp SET sal = 6200.00 WHERE empno = 101;
 
 -- Update project end date
-UPDATE emp.EmpProjects SET EndDate = '2024-06-01'
- WHERE ProjectID = 1 AND EmpID = 101;
+UPDATE employees.emp_projects
+SET end_date = '2024-06-01'
+WHERE projectno = 1 AND empno = 101;

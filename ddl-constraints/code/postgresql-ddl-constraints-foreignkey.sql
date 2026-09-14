@@ -8,21 +8,23 @@
   *******************************************************************************/
 
 -- FOREIGN KEY CONSTRAINT:
--- FOREIGN KEY Constraint on deptid column in the employees.emp table referencing
--- the deptid column in the employees.dept table
+-- FOREIGN KEY Constraint on deptno column in the employees.emp table referencing
+-- the deptno column in the employees.dept table
+
 ALTER TABLE employees.emp
-ADD CONSTRAINT fk_deptid
+ADD CONSTRAINT fk_deptno
 FOREIGN KEY (deptno)
 REFERENCES employees.dept(deptno); 
 
--- FOREIGN KEY Constraints on emp_id and project_id columns in the
+-- FOREIGN KEY Constraints on empno and projectno columns in the
 -- employees.emp_projects table referencing the respective columns in the
 -- employees.emp and employees.projects tables
+
 ALTER TABLE employees.emp_projects
-ADD CONSTRAINT fk_emp_id
+ADD CONSTRAINT fk_empno
 FOREIGN KEY (empno)
 REFERENCES employees.emp(empno),
-ADD CONSTRAINT fk_project_id
+ADD CONSTRAINT fk_projectno
 FOREIGN KEY (projectno)
 REFERENCES employees.projects(projectno); 
 

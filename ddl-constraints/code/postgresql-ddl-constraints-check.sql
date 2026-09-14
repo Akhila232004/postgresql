@@ -10,7 +10,7 @@
 -- CHECK CONSTRAINT:
 -- CHECK Constraint on project_budget column in the employees.projects table
 ALTER TABLE employees.projects
-ADD CONSTRAINT chk_project_budget CHECK (budget > 0); 
+ADD CONSTRAINT chk_project_budget CHECK (budget > 0);
 
 -- We can also specify this constraint while table creation; for example
 CREATE TABLE products (

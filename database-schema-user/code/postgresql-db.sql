@@ -8,12 +8,12 @@
   *******************************************************************************/
 
 -- DATABASE:
--- Create database tinitiate
+-- Create a database named tinitiate
 CREATE DATABASE tinitiate;
 
--- Alter the database tinitiate to set the default tablespace
+-- Alter the database tinitiate to set tablespace
 ALTER DATABASE tinitiate SET TABLESPACE pg_default;
 
--- PostgreSQL commands are generally case-insensitive.
--- We can use uppercase, lowercase, or a mixture of both for commands.
--- For best practice, follow a consistent naming convention.
+-- PostgreSQL commands are generally case-insensitive
+-- We can use uppercase or lowercase or mix of both for commands 
+-- But for best practice stick to any one format

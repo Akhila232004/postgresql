@@ -8,8 +8,7 @@
   *******************************************************************************/
 
 -- USER:
--- Create a user named 'tiuser' with the password 'Tinitiate!23'
+-- Create users
 CREATE USER tiuser WITH PASSWORD 'Tinitiate!23';
 
--- Create a user named 'developer' with the password 'Tinitiate!23'
-CREATE USER developer WITH PASSWORD 'Tinitiate!23';
+CREATE USER developer WITH PASSWORD 'Tinitiate!23'; 

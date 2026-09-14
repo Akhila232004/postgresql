@@ -19,14 +19,14 @@
 -- NOT NULL Constraint on empno and ename columns in the employees table
 ALTER TABLE employees.emp
 ALTER COLUMN empno SET NOT NULL,
-ALTER COLUMN ename SET NOT NULL; #OUTPUT: Updated Rows: 0
+ALTER COLUMN ename SET NOT NULL; 
 
 -- We can also specify this constraint while table creation; for example 
 CREATE TABLE staff (
     id SERIAL PRIMARY KEY,
     name VARCHAR NOT NULL,
     age INTEGER
-); #OUTPUT: Updated Rows: 0
+); 
 ```
 
 ### UNIQUE Constraint:
@@ -34,13 +34,13 @@ CREATE TABLE staff (
 ```sql
 -- UNIQUE Constraint to the empid column in the employees.emp table
 ALTER TABLE employees.emp
-ADD CONSTRAINT unique_empno UNIQUE (empno); #OUTPUT: Updated Rows: 0
+ADD CONSTRAINT unique_empno UNIQUE (empno); 
 -- We can also specify this constraint while table creation; for example
 CREATE TABLE students (
     student_id SERIAL,
     email VARCHAR UNIQUE,
     name VARCHAR
-); #OUTPUT: Updated Rows: 0
+); 
 ```
 
 ### CHECK Constraint:
@@ -49,7 +49,7 @@ CREATE TABLE students (
 ```sql
 -- CHECK Constraint on project_budget column in the employees.projects table
 ALTER TABLE employees.projects
-ADD CONSTRAINT chk_project_budget CHECK (budget > 0); #OUTPUT: Updated Rows: 0
+ADD CONSTRAINT chk_project_budget CHECK (budget > 0); 
 
 -- We can also specify this constraint while table creation; for example
 CREATE TABLE products (
@@ -58,7 +58,7 @@ CREATE TABLE products (
     price DECIMAL,
     quantity INTEGER,
     CHECK (price > 0 AND quantity >= 0)
-);  #OUTPUT: Updated Rows: 0
+); 
 ```
 
 ### PRIMARY KEY Constraint:
@@ -66,25 +66,25 @@ CREATE TABLE products (
 ```sql
 -- PRIMARY KEY Constraint on deptno column in the employees.dept table
 ALTER TABLE employees.dept
-ADD CONSTRAINT pk_dept PRIMARY KEY (deptno);  #OUTPUT: Updated Rows: 0
+ADD CONSTRAINT pk_dept PRIMARY KEY (deptno);  
 
 -- PRIMARY KEY Constraint on empno column in the employees.emp table
 ALTER TABLE employees.emp
-ADD CONSTRAINT pk_emp PRIMARY KEY (empno); #OUTPUT: Updated Rows: 0
+ADD CONSTRAINT pk_emp PRIMARY KEY (empno); 
 
 -- PRIMARY KEY Constraint on projectno column in the employees.projects table
 ALTER TABLE employees.projects
-ADD CONSTRAINT pk_projects PRIMARY KEY (projectno); #OUTPUT: Updated Rows: 0
+ADD CONSTRAINT pk_projects PRIMARY KEY (projectno);
 
 -- PRIMARY KEY Constraint on emp_projectno column in the employees.emp_projects table
 ALTER TABLE employees.emp_projects
-ADD CONSTRAINT pk_empprojects PRIMARY KEY (emp_projectno); #OUTPUT: Updated Rows: 0
+ADD CONSTRAINT pk_empprojects PRIMARY KEY (emp_projectno); 
 
 -- We can also specify this constraint while table creation; for example
 CREATE TABLE customers (
     customer_id INTEGER PRIMARY KEY,
     order_date DATE
-); #OUTPUT: Updated Rows: 0
+); 
 ```
 
 ### FOREIGN KEY Constraint:
@@ -97,7 +97,7 @@ CREATE TABLE customers (
 ALTER TABLE employees.emp
 ADD CONSTRAINT fk_deptno
 FOREIGN KEY (deptno)
-REFERENCES employees.dept(deptno); #OUTPUT: Updated Rows: 0
+REFERENCES employees.dept(deptno); 
 
 -- FOREIGN KEY Constraints on empno and projectno columns in the
 -- employees.emp_projects table referencing the respective columns in the
@@ -109,7 +109,7 @@ FOREIGN KEY (empno)
 REFERENCES employees.emp(empno),
 ADD CONSTRAINT fk_projectno
 FOREIGN KEY (projectno)
-REFERENCES employees.projects(projectno); #OUTPUT: Updated Rows: 0
+REFERENCES employees.projects(projectno); 
 
 -- We can also specify this constraint while table creation; for example
 CREATE TABLE orders (
@@ -117,7 +117,7 @@ CREATE TABLE orders (
     customer_id INTEGER REFERENCES customers(customer_id),
     -- Assuming there is a column customer_id in customers table
     order_date DATE
-); #OUTPUT: Updated Rows: 0
+); 
 ```
 
 ##### [Back To Contents](/README.md)

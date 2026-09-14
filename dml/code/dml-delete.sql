@@ -9,8 +9,7 @@
 
 ---DELETE:S
 -- Delete a dept
-DELETE FROM emp.dept WHERE deptid = 3000;
-
+DELETE FROM employees.dept WHERE deptno = 3000;
 
 -- Remove an employee
 DELETE FROM employees.emp

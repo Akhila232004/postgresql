@@ -8,11 +8,12 @@
   *******************************************************************************/
 
 -- DROP:
--- To drop dept table in emp schema
-DROP TABLE emp.dept; 
+-- To drop dept table in employees schema
+DROP TABLE employees.dept;
 
 -- To again create it
-CREATE TABLE emp.dept (
-    deptid  integer,
-    dname   varchar(100)
-);  
+CREATE TABLE employees.dept (
+    deptno  integer,
+    dname   varchar(14),
+    loc     varchar(13)
+); 
