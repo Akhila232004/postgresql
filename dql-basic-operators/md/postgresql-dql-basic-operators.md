@@ -1,15 +1,12 @@
-![PostgreSQL Tinitiate Image](../postgresql_tinitiate.png)
+![PostgreSQL Tinitiate Image](/postgresql_tinitiate.png)
 
 # PostgreSQL Tutorial
 
 © TINITIATE.COM
 
-##### [Back To Contents](../README.md)
+##### [Back To Contents](/README.md)
 
 # DQL - Basic Operators
-
-> **[postgresql-dql-basic-operators.sql](../code/postgresql-dql-basic-operators.sql) [CTRL + CLICK]**
-
 * PostgreSQL provides various operators that can be used to filter, compare, and manipulate data in SQL queries.
 * These operators are commonly used with the `WHERE` clause to specify conditions.
 
@@ -145,7 +142,7 @@ WHERE NOT EXISTS (
 );
 ```
 
-##### [Back To Contents](../README.md)
+##### [Back To Contents](/README.md)
 
 ---
 
