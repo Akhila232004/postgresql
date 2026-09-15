@@ -7,9 +7,6 @@
 ##### [Back To Contents](/README.md)
 
 # DQL - String Functions
-
-> **[postgresql-dql-string-functions.sql](../code/postgresql-dql-string-functions.sql) [CTRL + CLICK]**
-
 * PostgreSQL provides various string functions for manipulating and processing text values.
 
 ## LENGTH:
