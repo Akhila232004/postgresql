@@ -6,60 +6,83 @@
 
 ##### [Back To Contents](/README.md)
 
-# DQL - Joins
-* A join in SQL is used to combine rows from two or more tables based on a related column between them.
-* The related column is typically a foreign key in one table that references the primary key in another table.
-* Joins allow you to retrieve data from multiple tables in a single query, enabling you to correlate data from different sources.
+# DQL - Set Operations
+* Set operations in SQL are used to combine or compare the results of two or more queries.
+* These are essential for manipulating and combining data from multiple tables.
+* The main set operations include UNION, INTERSECT, and EXCEPT.
 
-## Joins in PostgreSQL:
-### INNER JOIN:
-* An INNER JOIN returns rows from both tables where there is a match based on the join condition.
-* If there is no match between the tables, the rows are not included in the result set.
+## Set Operations in PostgreSQL:
+### UNION:
+* The UNION operator is used to combine the results of two or more SELECT statements into a single result set.
+* It returns all distinct rows from both result sets. It removes duplicate rows by default.
 ```sql
--- Retrieve employee information along with their department names
-SELECT e.*, d.dname
-FROM employees.emp e
-INNER JOIN employees.dept d ON e.deptno = d.deptno; 
+-- Retrieve unique department numbers from both the employees 
+-- and projects tables
+SELECT deptno FROM employees.emp
+UNION
+SELECT projectno AS deptno FROM employees.projects;
+
+-- Retrieve unique employee names and project names from both the employees
+-- and projects tables
+SELECT ename AS name FROM employees.emp
+UNION
+SELECT 'Project: ' || projectno AS name FROM employees.projects;
+
+-- Combine the names of employees, departments, and projects
+SELECT ename AS name FROM employees.emp
+UNION
+SELECT dname AS name FROM employees.dept
+UNION
+SELECT projectno::TEXT AS name FROM employees.projects;
+
+-- UNION ALL: This operator does same as UNION with including duplicate rows
+-- Retrieve all department numbers from both the employees
+-- and projects tables
+SELECT deptno FROM employees.emp
+UNION ALL
+SELECT projectno AS deptno FROM employees.projects;
 ```
-### LEFT JOIN (or LEFT OUTER JOIN):
-* A LEFT JOIN returns all rows from the left table (the first table in the JOIN clause) and the matched rows from the right table.
-* If there is no match for a row in the left table, NULL values are filled in for the columns of the right table.
+### INTERSECT:
+* The INTERSECT operator is used to retrieve the common rows that appear in the result sets of two or more SELECT statements. It removes duplicate rows by default.
 ```sql
--- Retrieve all employees along with their department names,
--- including employees without a department
-SELECT e.*, d.dname
-FROM employees.emp e
-LEFT JOIN employees.dept d ON e.deptno = d.deptno;
+-- Retrieve grade number that exist in both the employees
+-- and projects tables
+SELECT grade FROM employees.salgrade
+INTERSECT
+SELECT projectno AS grade FROM employees.projects;
+
+-- Retrieve employee names that exist in both the employees
+-- and projects tables
+SELECT ename AS name FROM employees.emp
+INTERSECT
+SELECT 'Project: ' || projectno AS name FROM employees.projects;
+
+-- INTERSECT ALL: This operator does same as INTERSECT, including duplicate rows
+-- Find employees who are also in projects, including duplicates
+SELECT empno FROM employees.emp
+INTERSECT ALL
+SELECT empno FROM employees.emp_projects;
 ```
-### RIGHT JOIN (or RIGHT OUTER JOIN):
-* A RIGHT JOIN returns all rows from the right table (the second table in the JOIN clause) and the matched rows from the left table.
-* If there is no match for a row in the right table, NULL values are filled in for the columns of the left table.
+### EXCEPT:
+* The EXCEPT operator is used to retrieve the rows that appear in the first result set but not in the result sets of one or more subsequent SELECT statements. It removes duplicate rows by default.
 ```sql
--- Retrieve all departments along with their employees,
--- including departments without employees
-SELECT e.*, d.dname
-FROM employees.emp e
-RIGHT JOIN employees.dept d ON e.deptno = d.deptno;
-```
-### FULL JOIN (or FULL OUTER JOIN):
-* A FULL JOIN returns all rows from both tables, including rows where there is no match based on the join condition.
-* If a row in one table has no matching row in the other table, NULL values are filled in for the columns of the table without a match.
-```sql
--- Retrieve all employees and departments,
--- including those without a match in the other table
-SELECT e.*, d.dname
-FROM employees.emp e
-FULL JOIN employees.dept d ON e.deptno = d.deptno;
-```
-### CROSS JOIN:
-* A CROSS JOIN, also known as a Cartesian join, is a join operation that returns the Cartesian product of the two tables involved.
-* In other words, it generates all possible combinations of rows from the tables without any condition or predicate.
-* Each row from the first table is combined with every row from the second table
-```sql
--- Retrieve all possible combinations of emp and dept tables
-SELECT e.*, d.*
-FROM employees.emp e
-CROSS JOIN employees.dept d;
+-- Retrieve empno numbers from the employees table that
+-- do not exist in the emp_projects table
+SELECT empno FROM employees.emp
+EXCEPT
+SELECT empno as empno FROM employees.emp_projects;
+
+-- Retrieve employee names from the employees table that
+-- do not exist in the projects table
+SELECT ename AS name FROM employees.emp
+EXCEPT
+SELECT 'Project: ' || projectno AS name FROM employees.projects;
+
+-- EXCEPT ALL: This operator does same as EXCEPT with including duplicate rows
+-- Find employees who are not part of any project
+SELECT ename FROM employees.emp
+EXCEPT ALL
+SELECT ename FROM employees.emp_projects;
 ```
 ##### [Back To Contents](/README.md)
 
