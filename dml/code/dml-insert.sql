@@ -18,7 +18,7 @@ INSERT INTO employees.emp (empno, ename, sal, deptno) VALUES
 (102, 'Jane Smith', 6000.00, 2000);
 
 -- Insert with column names, use positional values
-INSERT INTO employees.dept VALUES (2000, 'FOUNDRY');
+INSERT INTO employees.dept VALUES (2000, 'FOUNDRY',NULL);
 
 -- Insert with column names, different order
 INSERT INTO employees.dept (dname, deptno) VALUES ('STORES', 3000);
