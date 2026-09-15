@@ -10,7 +10,7 @@
 -- UNIQUE CONSTRAINT:
 -- UNIQUE Constraint to the empid column in the employees.emp table
 ALTER TABLE employees.emp
-ADD CONSTRAINT unique_empno UNIQUE (empno); #OUTPUT: Updated Rows: 0
+ADD CONSTRAINT unique_empno UNIQUE (empno); 
 -- We can also specify this constraint while table creation; for example
 CREATE TABLE students (
     student_id SERIAL,
