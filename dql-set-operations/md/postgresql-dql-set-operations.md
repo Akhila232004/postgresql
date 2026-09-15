@@ -1,10 +1,9 @@
-![PostgreSQL Tinitiate Image](/postgresql_tinitiate.png)
+![PostgreSQL Tinitiate Image](postgresql_tinitiate.png)
 
-# PostgreSQL Tutorial
+# PostgreSQL
+&copy; TINITIATE.COM
 
-© TINITIATE.COM
-
-##### [Back To Contents](/README.md)
+##### [Back To Context](./README.md)
 
 # DQL - Set Operations
 * Set operations in SQL are used to combine or compare the results of two or more queries.
@@ -52,10 +51,12 @@ INTERSECT
 SELECT projectno AS grade FROM employees.projects;
 
 -- Retrieve employee names that exist in both the employees
--- and projects tables
-SELECT ename AS name FROM employees.emp
+-- and employee-projects tables
+SELECT empno
+FROM employees.emp
 INTERSECT
-SELECT 'Project: ' || projectno AS name FROM employees.projects;
+SELECT empno
+FROM employees.emp_projects;
 
 -- INTERSECT ALL: This operator does same as INTERSECT, including duplicate rows
 -- Find employees who are also in projects, including duplicates
@@ -73,20 +74,24 @@ EXCEPT
 SELECT empno as empno FROM employees.emp_projects;
 
 -- Retrieve employee names from the employees table that
--- do not exist in the projects table
-SELECT ename AS name FROM employees.emp
+-- do not exist in the emp_projects table
+SELECT empno
+FROM employees.emp
 EXCEPT
-SELECT 'Project: ' || projectno AS name FROM employees.projects;
+SELECT empno
+FROM employees.emp_projects;
 
--- EXCEPT ALL: This operator does same as EXCEPT with including duplicate rows
--- Find employees who are not part of any project
-SELECT ename FROM employees.emp
+-- EXCEPT ALL: 
+-- Find employee numbers that are not part of any project,
+-- including duplicate occurrences
+SELECT empno
+FROM employees.emp
 EXCEPT ALL
-SELECT ename FROM employees.emp_projects;
+SELECT empno
+FROM employees.emp_projects;
 ```
-##### [Back To Contents](/README.md)
 
----
-
-| © TINITIATE.COM |
-| --------------- |
+##### [Back To Context](./README.md)
+***
+| &copy; TINITIATE.COM |
+|----------------------|
