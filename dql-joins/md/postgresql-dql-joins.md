@@ -7,9 +7,6 @@
 ##### [Back To Contents](/README.md)
 
 # DQL - Joins
-
-> **[postgresql-dql-joins.sql](../code/postgresql-dql-joins.sql) [CTRL + CLICK]**
-
 * Joins in PostgreSQL are used to combine rows from two or more tables based on a related column between them.
 * PostgreSQL supports different types of joins to retrieve related data from multiple tables.
 
