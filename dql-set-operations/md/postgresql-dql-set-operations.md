@@ -1,9 +1,9 @@
-![PostgreSQL Tinitiate Image](postgresql_tinitiate.png)
+![PostgreSQL Tinitiate Image](/postgresql_tinitiate.png)
 
 # PostgreSQL
 &copy; TINITIATE.COM
 
-##### [Back To Context](./README.md)
+##### [Back To Context](/README.md)
 
 # DQL - Set Operations
 * Set operations in SQL are used to combine or compare the results of two or more queries.
@@ -91,7 +91,7 @@ SELECT empno
 FROM employees.emp_projects;
 ```
 
-##### [Back To Context](./README.md)
+##### [Back To Context](/README.md)
 ***
 | &copy; TINITIATE.COM |
 |----------------------|
